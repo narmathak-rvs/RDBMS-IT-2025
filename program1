@@ -1,1 +1,24 @@
-database
+-- Step 1: Create Database
+CREATE DATABASE CollegeDB;
+
+-- Step 2: Use the Database
+USE CollegeDB;
+
+-- Step 3: Create Department Table
+CREATE TABLE Department (
+    DepartmentID NUMBER(5) PRIMARY KEY,
+    DepartmentName VARCHAR(20) NOT NULL UNIQUE,
+    HOD VARCHAR(20) NOT NULL
+);
+
+-- Step 4: Create Student Table
+CREATE TABLE Student (
+    StudentID NUMBER(5) PRIMARY KEY,
+    StudentName VARCHAR(20) NOT NULL,
+    DOB DATE NOT NULL,
+    Gender VARCHAR(10) NOT NULL,
+    DepartmentID NUMBER(5) NOT NULL,
+    CONSTRAINT FK_Department
+        FOREIGN KEY (DepartmentID)
+        REFERENCES Department(DepartmentID)
+);
