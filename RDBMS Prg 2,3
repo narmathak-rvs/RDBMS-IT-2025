@@ -1,0 +1,23 @@
+CREATE TABLE Student (
+    StudentID NUMBER(5),
+    StudentName VARCHAR2(20) NOT NULL,
+    DOB DATE NOT NULL,
+    Gender VARCHAR2(10) NOT NULL,
+    DepartmentID NUMBER(5) NOT NULL,
+
+    CONSTRAINT PK_Student PRIMARY KEY (StudentID),
+    CONSTRAINT UQ_StudentName UNIQUE (StudentName),
+    CONSTRAINT FK_Student_Department
+        FOREIGN KEY (DepartmentID)
+        REFERENCES Department(DepartmentID)
+);
+
+3) ALTER TABLE Student
+ADD (
+    Email VARCHAR2(30),
+    PhoneNumber NUMBER(10)
+);
+
+DESC Student;
+ALTER TABLE Student
+ADD Email VARCHAR2(30);
